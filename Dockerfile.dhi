@@ -1,0 +1,42 @@
+# =====================================================================
+# Quiz Docker - version basée sur les Docker Hardened Images (Mission 4)
+# Prérequis : docker login dhi.io  (avec son compte Docker Hub)
+# Build     : docker build -f Dockerfile.dhi -t quiz-docker:dhi .
+# =====================================================================
+
+# ---------- Étape 1 : construction (variante -dev : shell + npm, root) ----------
+FROM dhi.io/node:22-alpine3.23-dev AS build
+
+WORKDIR /app
+
+# Dépendances d'abord (cache)
+COPY package*.json ./
+RUN npm ci
+
+# Code source puis compilation Vite -> dossier dist/
+COPY . .
+RUN npm run build
+
+# Serveur statique installé localement (pas de -g : l'image finale n'a pas npm)
+WORKDIR /srv
+RUN npm init -y >/dev/null \
+  && npm install serve@14 \
+  && npm cache clean --force
+
+
+# ---------- Étape 2 : production (variante runtime : sans shell ni npm, non-root) ----------
+FROM dhi.io/node:22-alpine3.23 AS production
+
+WORKDIR /app
+
+# On ne récupère que le serveur et le résultat du build
+COPY --from=build /srv/node_modules /srv/node_modules
+COPY --from=build /app/dist ./dist
+
+# L'image runtime DHI tourne déjà avec un utilisateur non-root (node) :
+# pas besoin d'addgroup / adduser / USER.
+
+EXPOSE 3000
+
+# Forme exec obligatoire : il n'y a pas de shell dans l'image finale
+CMD ["node", "/srv/node_modules/.bin/serve", "-s", "dist", "-l", "3000"]

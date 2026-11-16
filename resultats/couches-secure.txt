@@ -1,0 +1,16 @@
+IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
+6c5260c2905b   2 hours ago     CMD ["serve" "-s" "dist"]                       0B        buildkit.dockerfile.v0
+<missing>      2 hours ago     EXPOSE [3000/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      2 hours ago     USER appuser                                    0B        buildkit.dockerfile.v0
+<missing>      2 hours ago     COPY --chown=appuser:appgroup /app/dist ./di…   49.2kB    buildkit.dockerfile.v0
+<missing>      2 hours ago     WORKDIR /app                                    8.19kB    buildkit.dockerfile.v0
+<missing>      2 hours ago     RUN /bin/sh -c npm install -g serve serve@14…   19.3MB    buildkit.dockerfile.v0
+<missing>      12 months ago   CMD ["node"]                                    0B        buildkit.dockerfile.v0
+<missing>      12 months ago   ENTRYPOINT ["docker-entrypoint.sh"]             0B        buildkit.dockerfile.v0
+<missing>      12 months ago   COPY docker-entrypoint.sh /usr/local/bin/ # …   20.5kB    buildkit.dockerfile.v0
+<missing>      12 months ago   RUN /bin/sh -c apk add --no-cache --virtual …   5.47MB    buildkit.dockerfile.v0
+<missing>      12 months ago   ENV YARN_VERSION=1.22.22                        0B        buildkit.dockerfile.v0
+<missing>      12 months ago   RUN /bin/sh -c addgroup -g 1000 node     && …   158MB     buildkit.dockerfile.v0
+<missing>      12 months ago   ENV NODE_VERSION=22.21.1                        0B        buildkit.dockerfile.v0
+<missing>      13 months ago   CMD ["/bin/sh"]                                 0B        buildkit.dockerfile.v0
+<missing>      13 months ago   ADD alpine-minirootfs-3.22.2-x86_64.tar.gz /…   8.99MB    buildkit.dockerfile.v0

@@ -1,0 +1,26 @@
+
+ Target             │  quiz-docker:secure       │    7C    57H    35M     7L         
+   digest           │  6c5260c2905b             │                                    
+ Base image         │  node:22.21.1-alpine3.22  │    8C    69H    53M    16L     1?  
+ Updated base image │  node:22.23.5-alpine      │    1C    10H    12M     1L     5?  
+                    │                           │    -7    -59    -41    -15     +4  
+
+Policy status  FAILED  (3/7 policies met)
+Health score  D  (44%)
+
+ Status │                     Policy                     │           Results           
+────────┼────────────────────────────────────────────────┼─────────────────────────────
+ ✓      │ Default non-root user                          │                             
+ !      │ Copyleft licensed packages found               │    18 packages              
+ !      │ Fixable critical or high vulnerabilities found │    7C    57H     0M     0L  
+ ✓      │ No high-profile vulnerabilities                │    0C     0H     0M     0L  
+ !      │ Outdated base images found                     │                             
+ ✓      │ No unapproved base images                      │    0 deviations             
+ !      │ Required supply chain attestations missing     │    1 deviation              
+
+What's next:
+    View policy violations → docker scout policy quiz-docker:secure
+    View vulnerabilities → docker scout cves quiz-docker:secure
+    View base image update recommendations → docker scout recommendations quiz-docker:secure
+    Compare with the latest in the registry → docker scout compare --to-latest quiz-docker:secure
+

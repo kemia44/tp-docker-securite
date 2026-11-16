@@ -1,0 +1,19 @@
+IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
+ba01bea15726   3 hours ago     CMD ["serve" "-s" "dist"]                       0B        buildkit.dockerfile.v0
+<missing>      3 hours ago     EXPOSE [3000/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      3 hours ago     RUN /bin/sh -c rm -fr node_modules # buildkit   8.19kB    buildkit.dockerfile.v0
+<missing>      3 hours ago     RUN /bin/sh -c npm run build # buildkit         65.5kB    buildkit.dockerfile.v0
+<missing>      3 hours ago     RUN /bin/sh -c npm install -g serve # buildk…   16.3MB    buildkit.dockerfile.v0
+<missing>      3 hours ago     RUN /bin/sh -c npm install # buildkit           29.9MB    buildkit.dockerfile.v0
+<missing>      3 hours ago     COPY .. ./ # buildkit                           266kB     buildkit.dockerfile.v0
+<missing>      3 days ago      COPY package.json package-lock.json ./ # bui…   28.7kB    buildkit.dockerfile.v0
+<missing>      3 days ago      WORKDIR /app                                    8.19kB    buildkit.dockerfile.v0
+<missing>      19 months ago   CMD ["node"]                                    0B        buildkit.dockerfile.v0
+<missing>      19 months ago   ENTRYPOINT ["docker-entrypoint.sh"]             0B        buildkit.dockerfile.v0
+<missing>      19 months ago   COPY docker-entrypoint.sh /usr/local/bin/ # …   20.5kB    buildkit.dockerfile.v0
+<missing>      19 months ago   RUN /bin/sh -c apk add --no-cache --virtual …   5.47MB    buildkit.dockerfile.v0
+<missing>      19 months ago   ENV YARN_VERSION=1.22.22                        0B        buildkit.dockerfile.v0
+<missing>      19 months ago   RUN /bin/sh -c addgroup -g 1000 node     && …   122MB     buildkit.dockerfile.v0
+<missing>      19 months ago   ENV NODE_VERSION=18.20.8                        0B        buildkit.dockerfile.v0
+<missing>      21 months ago   CMD ["/bin/sh"]                                 0B        buildkit.dockerfile.v0
+<missing>      21 months ago   ADD alpine-minirootfs-3.21.3-x86_64.tar.gz /…   8.5MB     buildkit.dockerfile.v0
