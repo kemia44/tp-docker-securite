@@ -17,7 +17,7 @@
 | `.dockerignore` | Exclusion des fichiers inutiles ou sensibles du contexte de build |
 | `resultats/` | Preuves : utilisateurs, tailles, couches, analyses de vulnérabilités |
 
-Image publiée sur Docker Hub : **`À COMPLÉTER : TON_USERNAME/quiz-docker:secure`**
+Image publiée sur Docker Hub : **[`kemia44/quiz-docker:secure`](https://hub.docker.com/r/kemia44/quiz-docker)**
 
 ---
 
@@ -268,13 +268,13 @@ docker build -f Dockerfile.dhi -t quiz-docker:dhi .
 | Critère | `quiz-docker:secure` | `quiz-docker:dhi` |
 |---|---|---|
 | Image de base | `node:22.21.1-alpine3.22` (officielle) | `dhi.io/node:22-alpine3.23` (durcie) |
-| Taille (disque / compressée) | 252 Mo / 60,1 Mo | `À COMPLÉTER` |
+| Taille (disque / compressée) | 252 Mo / 60,1 Mo | Non mesurée |
 | Utilisateur | `appuser` (créé manuellement) | `node` (non-root par défaut) |
 | Shell dans l'image finale | Oui (`sh`) | Non |
 | `npm` / `apk` dans l'image finale | Oui | Non |
 | Signature, SBOM, provenance | Non fournis par nous | Fournis par Docker |
-| CVE critiques / élevées | 7 / 57 | `À COMPLÉTER` |
-| CVE moyennes / faibles | 35 / 7 | `À COMPLÉTER` |
+| CVE critiques / élevées | 7 / 57 | Non mesurées |
+| CVE moyennes / faibles | 35 / 7 | Non mesurées |
 
 Vérification de l'absence de shell :
 ```bash
@@ -290,4 +290,4 @@ Contreparties :
 - l'étape de build doit être adaptée (pas de `npm install -g` dans l'image finale) ;
 - il faut un compte et une authentification sur le registre `dhi.io`.
 
-`À COMPLÉTER : ajouter les chiffres observés (taille et CVE) pour appuyer la conclusion.`
+> **Limite :** l'image `quiz-docker:dhi` n'a pas encore été construite et analysée dans le cadre de ce rendu. La comparaison ci-dessus s'appuie sur les caractéristiques documentées des Docker Hardened Images ; les mesures (taille et CVE) seront à confirmer avec `docker scout quickview quiz-docker:dhi`.
